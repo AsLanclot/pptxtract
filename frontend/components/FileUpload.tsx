@@ -14,7 +14,7 @@ interface FileUploadProps {
 export default function FileUpload({ onUpload, isUploading }: FileUploadProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [sizeError, setSizeError] = useState(false)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
@@ -81,12 +81,13 @@ export default function FileUpload({ onUpload, isUploading }: FileUploadProps) {
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
               <Upload size={24} className="text-brand-blue" />
             </div>
-            <h3 className="text-xl font-bold mb-2">{t('dragDropText')}</h3>
+            <h3 className={`font-bold mb-2 ${language === 'en' ? 'text-lg' : 'text-xl'}`}>{t('dragDropText')}</h3>
             <p className="text-gray-500 mb-4">{t('fileFormatSupport')}</p>
             <button 
               type="button" 
-              className="btn btn-primary"
+              className="btn btn-primary flex items-center gap-2"
             >
+              <Upload size={16} />
               {t('chooseFile')}
             </button>
           </div>
@@ -129,7 +130,10 @@ export default function FileUpload({ onUpload, isUploading }: FileUploadProps) {
                 {t('processing')}
               </>
             ) : (
-              t('processFile')
+              <>
+                <FileText size={18} className="mr-2" />
+                {t('processFile')}
+              </>
             )}
           </motion.button>
         </div>

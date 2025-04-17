@@ -1,0 +1,25 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# 安裝依賴
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 複製應用代碼
+COPY app.py .
+COPY extract_ppt.py .
+COPY templates ./templates
+
+# 創建必要的目錄
+RUN mkdir -p uploads outputs
+
+# 設置環境變量
+ENV PORT=12305
+ENV PYTHONUNBUFFERED=1
+
+# 開放端口
+EXPOSE $PORT
+
+# 啟動應用
+CMD ["python", "app.py"] 

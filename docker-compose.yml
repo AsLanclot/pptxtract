@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfile.frontend
+    container_name: pptxtract-frontend
+    ports:
+      - "12300:12300"
+    environment:
+      - NODE_ENV=production
+      - BACKEND_URL=http://backend:12305
+    depends_on:
+      - backend
+    restart: always
+    volumes:
+      - frontend_build:/app/.next
+      - ./logs/frontend:/app/logs
+
+  backend:
+    build:
+      context: .
+      dockerfile: dockerfile.backend
+    container_name: pptxtract-backend
+    ports:
+      - "12305:12305"
+    environment:
+      - PORT=12305
+      - FLASK_ENV=production
+    volumes:
+      - uploads_data:/app/uploads
+      - outputs_data:/app/outputs
+      - ./logs/backend:/app/logs
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    container_name: pptxtract-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - frontend
+      - backend
+    restart: always
+
+  certbot:
+    image: certbot/certbot
+    container_name: pptxtract-certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email admin@aslaninno.com -d pptxtract.aslaninno.com --agree-tos
+
+volumes:
+  frontend_build:
+  uploads_data:
+  outputs_data: 

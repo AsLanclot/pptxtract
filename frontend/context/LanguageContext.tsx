@@ -101,6 +101,10 @@ const translations: Translations = {
     zh: '主要顏色',
     en: 'Main Colors'
   },
+  themeRecommendations: {
+    zh: '主題配色建議',
+    en: 'Theme Color Recommendations'
+  },
   useFrequency: {
     zh: '使用頻率',
     en: 'Usage Frequency'

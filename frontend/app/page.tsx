@@ -7,6 +7,7 @@ import Header from '@/components/Header'
 import FileUpload from '@/components/FileUpload'
 import ResultTabs from '@/components/ResultTabs'
 import { useLanguage } from '@/context/LanguageContext'
+import { uploadPpt, getDownloadUrl, cleanupFiles } from '@/services/api'
 
 export default function Home() {
   const [isUploading, setIsUploading] = useState(false)
@@ -21,12 +22,7 @@ export default function Home() {
       const formData = new FormData()
       formData.append('file', file)
       
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData
-      })
-      
-      const data = await response.json()
+      const data = await uploadPpt(file)
       
       if (data.error) {
         throw new Error(data.error)
@@ -42,11 +38,15 @@ export default function Home() {
   
   const handleDownload = () => {
     if (result?.output_id) {
-      window.location.href = `/api/download/${result.output_id}`
+      window.location.href = getDownloadUrl(result.output_id)
     }
   }
   
   const handleReset = () => {
+    if (result?.output_id) {
+      cleanupFiles(result.output_id)
+        .catch(error => console.error('清理文件失敗:', error));
+    }
     setResult(null)
   }
 
