@@ -36,7 +36,7 @@
 
 ```bash
 # 克隆代碼庫
-git clone https://github.com/YourUsername/pptxtract.git
+git clone https://github.com/AsLanclot/pptxtract.git
 cd pptxtract
 
 # 運行啟動腳本
@@ -50,7 +50,7 @@ cd pptxtract
 1. 克隆或下載此代碼庫
 
 ```bash
-git clone https://github.com/YourUsername/pptxtract.git
+git clone https://github.com/AsLanclot/pptxtract.git
 cd pptxtract
 ```
 
@@ -137,7 +137,7 @@ Use the provided start script to quickly start the application:
 
 ```bash
 # Clone the repository
-git clone https://github.com/YourUsername/pptxtract.git
+git clone https://github.com/AsLanclot/pptxtract.git
 cd pptxtract
 
 # Run the start script
@@ -151,7 +151,7 @@ The script will automatically install the required dependencies and start both t
 1. Clone or download this repository
 
 ```bash
-git clone https://github.com/YourUsername/pptxtract.git
+git clone https://github.com/AsLanclot/pptxtract.git
 cd pptxtract
 ```
 
