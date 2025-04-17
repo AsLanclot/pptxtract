@@ -133,9 +133,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="mt-auto py-6 text-center">
         <div className="gradient-text font-semibold">{t('footerByDesign')}</div>
-        <a href="https://me.aslaninno.com" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-brand-blue transition-colors flex items-center justify-center gap-1 mt-1">
-          <Globe size={14} />
-          {t('footerWebsite')}
+        <a href="https://me.aslaninno.com" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-brand-blue transition-colors">
+          {t('footerReadMore')}
         </a>
       </footer>
       
