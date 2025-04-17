@@ -30,12 +30,27 @@
 - pip 包管理器
 - Node.js 18 或更高版本 (新版UI)
 
-#### 安裝步驟
+#### 快速啟動（推薦）
+
+使用提供的啟動腳本快速啟動應用：
+
+```bash
+# 克隆代碼庫
+git clone https://github.com/YourUsername/pptxtract.git
+cd pptxtract
+
+# 運行啟動腳本
+./start.sh
+```
+
+腳本會自動安裝所需依賴，並同時啟動後端和前端服務。
+
+#### 手動安裝步驟
 
 1. 克隆或下載此代碼庫
 
 ```bash
-git clone https://github.com/AsLanclot/pptxtract.git
+git clone https://github.com/YourUsername/pptxtract.git
 cd pptxtract
 ```
 
@@ -116,12 +131,27 @@ This is a web application that extracts text and images from PowerPoint (PPTX) f
 - pip package manager
 - Node.js 18 or higher (for new UI)
 
-#### Installation Steps
+#### Quick Start (Recommended)
+
+Use the provided start script to quickly start the application:
+
+```bash
+# Clone the repository
+git clone https://github.com/YourUsername/pptxtract.git
+cd pptxtract
+
+# Run the start script
+./start.sh
+```
+
+The script will automatically install the required dependencies and start both the backend and frontend services.
+
+#### Manual Installation Steps
 
 1. Clone or download this repository
 
 ```bash
-git clone https://github.com/AsLanclot/pptxtract.git
+git clone https://github.com/YourUsername/pptxtract.git
 cd pptxtract
 ```
 
@@ -198,11 +228,14 @@ We welcome issue reports and feature requests. If you want to contribute code, p
 
 ## 授權 | License
 
-社區版 1.0 | Community Edition 1.0
+MIT License - 詳見 [LICENSE](LICENSE) 文件
+MIT License - See the [LICENSE](LICENSE) file for details.
 
 ## 文件結構
 
 - `app.py` - Flask 應用主程序
+- `extract_ppt.py` - PPT提取核心邏輯
+- `start.sh` - 一鍵啟動腳本
 - `templates/index.html` - 舊版網頁前端界面
 - `requirements.txt` - 依賴庫列表
 - `uploads/` - 臨時存放上傳文件的目錄
@@ -240,5 +273,7 @@ We welcome issue reports and feature requests. If you want to contribute code, p
 - 支持的檔案格式：僅限 .pptx 格式
 - 檔案大小限制：最大 30MB
 - 支持語言：中文（繁體）和英文
+
+---
 
 © 2025 PPT Content and Image Extraction Tool. Community Edition v1.0
