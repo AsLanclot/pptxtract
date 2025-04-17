@@ -1,7 +1,7 @@
-# PPT 內容及圖片提取工具 (Community Edition v1.0)
-# PPT Content and Image Extraction Tool (Community Edition v1.0)
+# PPT 內容及圖片提取工具 (Community Edition v1.1)
+# PPT Content and Image Extraction Tool (Community Edition v1.1)
 
-![Version](https://img.shields.io/badge/version-1.0-blue)
+![Version](https://img.shields.io/badge/version-1.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 [English](#english) | [繁體中文](#繁體中文)
@@ -276,4 +276,4 @@ MIT License - See the [LICENSE](LICENSE) file for details.
 
 ---
 
-© 2025 PPT Content and Image Extraction Tool. Community Edition v1.0
+© 2025 PPT Content and Image Extraction Tool. Community Edition v1.1

@@ -22,8 +22,10 @@ export default function Header() {
               <FileSliders size={32} />
             </div>
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold">{t('appTitle')}</h1>
-              <p className="text-lg md:text-xl mt-2 text-white/80">
+              <h1 className={`font-medium ${language === 'zh' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-4xl'}`}>
+                {t('appTitle')}
+              </h1>
+              <p className={`mt-2 text-white/80 ${language === 'zh' ? 'text-base md:text-lg' : 'text-sm md:text-base'} font-light`}>
                 {t('appDescription')}
               </p>
             </div>

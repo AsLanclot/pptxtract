@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Upload, FileText, PaintBucket, Download, ArrowRight, Cpu, Layout, Palette } from 'lucide-react'
+import { Upload, FileText, PaintBucket, Download, ArrowRight, Cpu, Layout, Palette, Globe } from 'lucide-react'
 import Header from '@/components/Header'
 import FileUpload from '@/components/FileUpload'
 import ResultTabs from '@/components/ResultTabs'
@@ -12,7 +12,7 @@ export default function Home() {
   const [isUploading, setIsUploading] = useState(false)
   const [result, setResult] = useState<any>(null)
   const [activeTab, setActiveTab] = useState('content')
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const handleUpload = async (file: File) => {
     setIsUploading(true)
@@ -51,10 +51,10 @@ export default function Home() {
   }
 
   return (
-    <main className="flex-1">
+    <main className="flex-1 flex flex-col min-h-screen">
       <Header />
       
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 flex-grow">
         {!result ? (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,7 @@ export default function Home() {
               <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                 <div className="flex items-center mb-2">
                   <Layout className="text-brand-blue mr-2" size={20} />
-                  <h3 className="font-medium">{t('aiWebGeneration').split('：')[0]}</h3>
+                  <h3 className={`font-medium ${language === 'en' ? 'text-base' : 'text-lg'}`}>{t('aiWebGeneration').split('：')[0]}</h3>
                 </div>
                 <p className="text-sm text-gray-600">{t('aiWebGeneration').split('：')[1]}</p>
               </div>
@@ -77,7 +77,7 @@ export default function Home() {
               <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                 <div className="flex items-center mb-2">
                   <Palette className="text-brand-purple mr-2" size={20} />
-                  <h3 className="font-medium">{t('aiDesignAssistant').split('：')[0]}</h3>
+                  <h3 className={`font-medium ${language === 'en' ? 'text-base' : 'text-lg'}`}>{t('aiDesignAssistant').split('：')[0]}</h3>
                 </div>
                 <p className="text-sm text-gray-600">{t('aiDesignAssistant').split('：')[1]}</p>
               </div>
@@ -85,7 +85,7 @@ export default function Home() {
               <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                 <div className="flex items-center mb-2">
                   <Cpu className="text-brand-blue mr-2" size={20} />
-                  <h3 className="font-medium">{t('contentRepurposing').split('：')[0]}</h3>
+                  <h3 className={`font-medium ${language === 'en' ? 'text-base' : 'text-lg'}`}>{t('contentRepurposing').split('：')[0]}</h3>
                 </div>
                 <p className="text-sm text-gray-600">{t('contentRepurposing').split('：')[1]}</p>
               </div>
@@ -129,6 +129,15 @@ export default function Home() {
           </motion.div>
         )}
       </div>
+      
+      {/* Footer */}
+      <footer className="mt-auto py-6 text-center">
+        <div className="gradient-text font-semibold">{t('footerByDesign')}</div>
+        <a href="https://me.aslaninno.com" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-brand-blue transition-colors flex items-center justify-center gap-1 mt-1">
+          <Globe size={14} />
+          {t('footerWebsite')}
+        </a>
+      </footer>
       
       {/* 裝飾元素 */}
       <div className="fixed -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 rounded-full blur-3xl -z-10" />

@@ -2,7 +2,7 @@
 
 # 顯示歡迎信息
 echo "========================================"
-echo "  PPT內容及圖片提取工具 (社區版 v1.0)  "
+echo "  PPT內容及圖片提取工具 (社區版 v1.1)  "
 echo "  PPT Content and Image Extraction Tool "
 echo "========================================"
 echo ""

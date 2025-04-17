@@ -120,6 +120,18 @@ const translations: Translations = {
   contentRepurposing: {
     zh: '內容再利用：將演示文稿轉換為其他格式，用於不同平台',
     en: 'Content Repurposing: Convert presentations into other formats for different platforms'
+  },
+  footerByDesign: {
+    zh: '由 Aslan.Design 製作',
+    en: 'by Aslan.Design'
+  },
+  footerReadMore: {
+    zh: '了解更多：www.me.aslaninno.com',
+    en: 'read more: www.me.aslaninno.com'
+  },
+  footerWebsite: {
+    zh: '網址',
+    en: 'Website'
   }
 }
 
